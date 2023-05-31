@@ -1,14 +1,15 @@
 from flask import Flask
-#import secrets
-#secrets.token_hex(16)
 from flask_sqlalchemy import SQLAlchemy
 from flask_bcrypt import Bcrypt
 from flask_login import LoginManager
+import os
 
 
 app = Flask(__name__)
 
 app.config['SECRET_KEY'] = '71959ebc89ab53fc286e22ea9fd99888'
+if os.getenv("DATABASE_URL"):
+    app.config['SQLALCHEMY_DATABASE_URI'] = os.getenv("DATABASE_URL")
 app.config['SQLALCHEMY_DATABASE_URI'] = 'sqlite:///comunidade.db'
 
 database = SQLAlchemy(app)
