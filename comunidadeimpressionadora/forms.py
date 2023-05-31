@@ -31,7 +31,7 @@ class FormEditarPerfil(FlaskForm):
     foto_perfil = FileField('Escolher nova foto', validators=[FileAllowed(['jpg','png','jpeg'])])
     curso_excel = BooleanField('Excel Impressionador')
     curso_vba = BooleanField('VBA Impressionador')
-    curso_ppt = BooleanField('Apresentação Impressionador')
+    curso_ppt = BooleanField('Apresentações Impressionador')
     curso_python = BooleanField('Python Impressionador')
     curso_sql = BooleanField('SQL Impressionador')
     curso_powerbi = BooleanField('Power BI Impressionador')
