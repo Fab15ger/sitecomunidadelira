@@ -46,5 +46,5 @@ class FormEditarPerfil(FlaskForm):
 
 class CriarPost(FlaskForm):
     titulo = StringField('Nome de Usuário', validators=[DataRequired(), Length(2, 30)])
-    corpo = TextAreaField('Escreva seu post', validators=[DataRequired(), Length(2, 500)])
+    corpo = TextAreaField('Escreva seu post', validators=[DataRequired(), Length(2, 10000)])
     botao_submit = SubmitField('Postar')
