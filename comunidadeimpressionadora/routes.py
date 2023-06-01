@@ -7,7 +7,6 @@ import os
 import secrets
 from PIL import Image
 
-list_users = ['Lira', 'Amanda', 'Alon', 'Debora', 'Joao']
 
 @app.route("/")
 def home_page():
@@ -44,7 +43,7 @@ def login_criarconta():
 
     if criar_conta.validate_on_submit() and  'botao_submit_criarconta' in request.form:
         flash(f'Conta criada para o e-mail: {criar_conta.email.data}.', 'alert-success')
-        senha_cript = bcript.generate_password_hash(criar_conta.senha.data)
+        senha_cript = bcript.generate_password_hash(criar_conta.senha.data).decode("utf-8")
         usuario = Usuario(username=criar_conta.username.data, email=criar_conta.email.data, senha=senha_cript)
         database.session.add(usuario)
         database.session.commit()
