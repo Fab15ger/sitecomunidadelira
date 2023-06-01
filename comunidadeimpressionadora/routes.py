@@ -21,7 +21,7 @@ def contact_page():
 @login_required
 def users_page():
     usuarios = Usuario()
-    return render_template('usuarios.html', list_users=list_users,usuarios=usuarios)
+    return render_template('usuarios.html', usuarios=usuarios)
 
 @app.route('/login', methods=['GET','POST'])
 def login_criarconta():
