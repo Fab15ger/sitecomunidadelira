@@ -42,7 +42,6 @@ def login_criarconta():
             flash(f'Dados incorretos.', 'alert-danger')
 
     if criar_conta.validate_on_submit() and  'botao_submit_criarconta' in request.form:
-        flash(f'Conta criada para o e-mail: {criar_conta.email.data}.', 'alert-success')
         senha_cript = bcript.generate_password_hash(criar_conta.senha.data).decode("utf-8")
         usuario = Usuario(username=criar_conta.username.data, email=criar_conta.email.data, senha=senha_cript)
         database.session.add(usuario)
